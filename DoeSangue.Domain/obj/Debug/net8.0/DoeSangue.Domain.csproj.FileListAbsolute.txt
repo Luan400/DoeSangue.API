@@ -1,0 +1,5 @@
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Domain\obj\Debug\net8.0\DoeSangue.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Domain\obj\Debug\net8.0\DoeSangue.Domain.AssemblyInfoInputs.cache
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Domain\obj\Debug\net8.0\DoeSangue.Domain.AssemblyInfo.cs
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Domain\obj\Debug\net8.0\DoeSangue.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Domain\obj\Debug\net8.0\DoeSangue.Domain.sourcelink.json

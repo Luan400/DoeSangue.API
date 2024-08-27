@@ -1,0 +1,6 @@
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.AssemblyInfo.cs
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Luan\source\repos\DoeSangue\DoeSangue.Infrastructure\obj\Debug\net8.0\DoeSangue.Infrastructure.sourcelink.json
