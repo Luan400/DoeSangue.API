@@ -19,9 +19,15 @@ namespace DoeSangue.Applications.Queries.GetAllDonation
             _unitOfWork = unitOfWork;
         }
 
-        public Task<List<DonationViewModel>> Handle(GetAllDonationQuery request, CancellationToken cancellationToken)
+        public async Task<List<DonationViewModel>> Handle(GetAllDonationQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+
+            var donation = await _unitOfWork.DonationRepository.GetAllAsync();
+
+            var donationViewModel = donation.Select(
+                p => new DonationViewModel(p.DonorId, p.DataDoacao, p.QuantidadeML, p.Donor)).ToList();
+
+            return donationViewModel;
         }
     }
 }

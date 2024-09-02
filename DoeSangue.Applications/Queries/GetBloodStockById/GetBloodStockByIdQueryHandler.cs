@@ -1,4 +1,5 @@
 ﻿using DoeSangue.Applications.ViewModels;
+using DoeSangue.Infrastructure.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,22 @@ namespace DoeSangue.Applications.Queries.GetBloodStockById
 {
     public class GetBloodStockByIdQueryHandler : IRequestHandler<GetBloodStockByIdQuery, List<BloodStockViewModel>>
     {
-        public Task<List<BloodStockViewModel>> Handle(GetBloodStockByIdQuery request, CancellationToken cancellationToken)
+        private readonly IUnitOfWork _unitOfWork;
+        public GetBloodStockByIdQueryHandler(IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
         }
+        public async Task<List<BloodStockViewModel>> Handle(GetBloodStockByIdQuery request, CancellationToken cancellationToken)
+        {
+            var bloodStock = await _unitOfWork.BloodStockRepository.GetByIdAsync();
+
+            if (bloodStock == null) return null;
+
+            var bloodStockViewModel = bloodStock.Select(
+                            p => new BloodStockViewModel(p.TipoSanguineo, p.FatorRh, p.QuantidadeML)).ToList();
+            return bloodStockViewModel;
+
+        }
+
     }
 }

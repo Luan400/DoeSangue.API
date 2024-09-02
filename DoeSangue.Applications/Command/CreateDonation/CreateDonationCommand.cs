@@ -10,20 +10,16 @@ namespace DoeSangue.Applications.Command.CreateDonation
 {
     public class CreateDonationCommand : IRequest<int>
     {
-        public CreateDonationCommand(int donorId, DateTime dataDoacao, int quantidadeML, Donor donor)
+        public CreateDonationCommand(int donorId, int quantidadeML)
         {
             DonorId = donorId;
-            DataDoacao = dataDoacao;
             QuantidadeML = quantidadeML;
-            Donor = donor;
+           
         }
 
         public int DonorId { get; set; }
-
-        public DateTime DataDoacao { get; set; }
-
         public int QuantidadeML { get; set; }
 
-        public Donor Donor { get; set; }
+        
     }
 }

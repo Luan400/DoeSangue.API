@@ -22,6 +22,8 @@ namespace DoeSangue.Infrastructure.Persistence
             DonationRepository = donationRepository;
             DonorsRepository = donorsRepository;
         }
+
+        public static DoeSangueDbContext Object { get; set; }
         public IBloodStockRepository BloodStockRepository { get; }
 
         public IDonationRepository DonationRepository { get; }

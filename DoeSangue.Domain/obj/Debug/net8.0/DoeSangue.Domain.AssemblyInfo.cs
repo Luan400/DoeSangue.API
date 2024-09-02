@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoeSangue.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb2ddd8e5c54a16e619c5d312423841fa15b508b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14bd9d27f53688d723243da1d28cebe0980056dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoeSangue.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoeSangue.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

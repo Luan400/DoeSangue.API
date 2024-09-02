@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DoeSangue.Applications.Queries.GetAllDonors
 {
-    public class GetAllDonorsQueryHandler : IRequestHandler<GetAllDonorsQuery, List<DonorsViewModel>>>
+    public class GetAllDonorsQueryHandler : IRequestHandler<GetAllDonorsQuery, List<DonorsViewModel>>
     {
 
         private readonly IUnitOfWork _unitOfWork;
@@ -19,9 +19,14 @@ namespace DoeSangue.Applications.Queries.GetAllDonors
             _unitOfWork = unitOfWork;
         }
 
-        public Task<List<DonorsViewModel>> Handle(GetAllDonorsQuery request, CancellationToken cancellationToken)
+        public async Task<List<DonorsViewModel>> Handle(GetAllDonorsQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var donors = await _unitOfWork.DonorsRepository.GetAllAsync();
+
+            var donorViewModel = donors.Select(
+                p=> new DonorsViewModel(p.NomeCompleto, p.Email, p.DataNascimento, p.Genero, p.Peso, p.TipoSanguineo, p.FatorRh)).ToList();
+
+            return donorViewModel;
         }
     }
 }

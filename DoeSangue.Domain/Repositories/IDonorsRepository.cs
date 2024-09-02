@@ -9,6 +9,9 @@ namespace DoeSangue.Domain.Repositories
 {
     public interface IDonorsRepository
     {
-        Task<List<Donor>> GetAll();
+        Task<List<Donor>> GetAllAsync();
+
+        Task<List<BloodStock>> GetByIdAsync();
+        Task<List<BloodStock>> AddAsync();
     }
 }

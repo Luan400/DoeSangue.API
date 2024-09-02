@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DoeSangue.Applications")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("DoeSangue.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14bd9d27f53688d723243da1d28cebe0980056dc")]
-[assembly: System.Reflection.AssemblyProductAttribute("DoeSangue.Applications")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DoeSangue.Applications")]
+[assembly: System.Reflection.AssemblyProductAttribute("DoeSangue.UnitTests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("DoeSangue.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

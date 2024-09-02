@@ -18,9 +18,14 @@ namespace DoeSangue.Applications.Queries.GetBloodStock
             _unitOfWork = unitOfWork;
         }
 
-        public Task<List<BloodStockViewModel>> Handle(GetAllBloodStockQuery request, CancellationToken cancellationToken)
+        public async Task<List<BloodStockViewModel>> Handle(GetAllBloodStockQuery request, CancellationToken cancellationToken)
         {
-            var bloodStock = 
+            var bloodStock = await _unitOfWork.BloodStockRepository.GetAllAsync();
+
+            var bloodStockViewModel = bloodStock.Select(
+                p=> new BloodStockViewModel(p.TipoSanguineo, p.FatorRh, p.QuantidadeML)).ToList();    
+
+            return bloodStockViewModel;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace DoeSangue.Applications.Command.CreateDonation
         }
         public async Task<int> Handle(CreateDonationCommand request, CancellationToken cancellationToken)
         {
-            var donation = new Donation(request.DonorId, request.DataDoacao, request.QuantidadeML, request.Donor);
+            var donation = new Donation(request.DonorId, request.QuantidadeML);
 
             await _dbContext.AddAsync(donation);
 

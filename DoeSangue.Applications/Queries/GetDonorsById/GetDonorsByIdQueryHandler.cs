@@ -1,4 +1,5 @@
 ﻿using DoeSangue.Applications.ViewModels;
+using DoeSangue.Infrastructure.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,20 @@ namespace DoeSangue.Applications.Queries.GetDonorsById
 {
     public class GetDonorsByIdQueryHandler : IRequestHandler<GetDonorsByIdQuery, List<DonorsViewModel>>
     {
-        public Task<List<DonorsViewModel>> Handle(GetDonorsByIdQuery request, CancellationToken cancellationToken)
+        private readonly IUnitOfWork _unitOfWork;
+        public GetDonorsByIdQueryHandler(IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+        }
+
+        public async Task<List<DonorsViewModel>> Handle(GetDonorsByIdQuery request, CancellationToken cancellationToken)
+        {
+            var donors = await _unitOfWork.DonorsRepository.GetAllAsync();
+
+            var donorViewModel = donors.Select(
+                p => new DonorsViewModel(p.NomeCompleto, p.Email, p.DataNascimento, p.Genero, p.Peso, p.TipoSanguineo, p.FatorRh)).ToList();
+
+            return donorViewModel;
         }
     }
 }

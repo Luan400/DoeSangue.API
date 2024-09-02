@@ -30,5 +30,10 @@ namespace DoeSangue.Core.Entities
         public int QuantidadeML { get; set; }
 
         public Donor Donor { get; set; }
+
+        public void Update(int quantidadeML)
+        {
+            QuantidadeML += quantidadeML;
+        }
     }
 }
