@@ -1,8 +1,8 @@
 <h1 align="center">DoeSangue</h1>
 <p  align='center'> 
  <a href= 'https://www.linkedin.com/in/luan-bortoleto-590490234/'>
- <img alt='Luan Bortoleto [Linkedin]' src='/iconlinke.jpg' width=20px></a>
-  <a href='https://www.instagram.com/luanbortoleto/'><img alt='Luan Bortoleto [Instagram]' src='/iconinsta.jpg' width=20px></a>
+ <img alt='Luan Bortoleto [Linkedin]' src='/iconlinke(2).jpg' width=20px></a>
+  <a href='https://www.instagram.com/luanbortoleto/'><img alt='Luan Bortoleto [Instagram]' src='/iconinsta(2).jpg' width=20px></a>
   </p>
   
   <p align="center"> API REST completa de um sistema para doações de sangue, com controle de estoque de sangue
