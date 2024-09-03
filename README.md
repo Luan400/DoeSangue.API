@@ -26,6 +26,7 @@
 
 <div>
 <ul>
+ <li>C#</li>
 <li>ASPT.NET Core com .NET</li>
 <li>Arquitetura limpa</li>
 <li>Entity Framework Core</li>
