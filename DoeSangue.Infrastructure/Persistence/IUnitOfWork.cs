@@ -1,4 +1,5 @@
-﻿using DoeSangue.Domain.Repositories;
+﻿using DoeSangue.Core.Entities;
+using DoeSangue.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace DoeSangue.Infrastructure.Persistence
 
         IDonorsRepository DonorsRepository { get; }
 
+        Task AddAsync(Donation donation);
         Task<int> CompleteAsync();
+        Task SaveChangesAsync();
     }
 }

@@ -18,11 +18,20 @@ namespace DoeSangue.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<BloodStock>> GetAll() {
-       
+        public async Task<List<BloodStock>> AddAsync(BloodStock bloodStock)
+        {
+            await _dbContext.BloodStock.AddAsync(bloodStock);
+
+            await _dbContext.SaveChangesAsync();
+
             return await _dbContext.BloodStock.ToListAsync();
         }
 
-      
+        public async Task<List<BloodStock>> GetAllAsync()
+        {
+            return await _dbContext.BloodStock.ToListAsync();
+        }
+
+        
     }
 }

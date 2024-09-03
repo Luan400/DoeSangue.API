@@ -13,20 +13,22 @@ namespace DoeSangue.Applications.Command.DeleteDonor
     {
 
         private readonly DoeSangueDbContext _dbContext;
-        public DeleteDonorCommandHandler(DoeSangueDbContext dbContext, bool active)
+        public DeleteDonorCommandHandler(DoeSangueDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         public async Task<int> Handle(DeleteDonorCommand request, CancellationToken cancellationToken)
         {
-            var donor = _dbContext.Donor.SingleOrDefault(p => p.Id == p.Id);
+            var donor = _dbContext.Donor.SingleOrDefault(p => p.Id == request.DonorId);
 
-            donor.Delete(false);
+            if (donor != null)
+            {
+                donor.Delete(false);
+                await _dbContext.SaveChangesAsync();
+            }
 
-            await _dbContext.SaveChangesAsync();
-
-            return donor.Id;
+            return donor?.Id ?? 0;
         }
     }
 }

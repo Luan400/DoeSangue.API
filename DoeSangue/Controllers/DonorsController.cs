@@ -2,7 +2,7 @@
 using DoeSangue.Applications.Command.DeleteDonor;
 using DoeSangue.Applications.Queries.GetAllDonors;
 using DoeSangue.Applications.Queries.GetBloodStock;
-using DoeSangue.Applications.Queries.GetBloodStockById;
+
 using DoeSangue.Applications.Queries.GetDonorsById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

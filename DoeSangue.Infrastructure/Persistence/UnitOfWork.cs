@@ -23,12 +23,17 @@ namespace DoeSangue.Infrastructure.Persistence
             DonorsRepository = donorsRepository;
         }
 
-        public static DoeSangueDbContext Object { get; set; }
+       
         public IBloodStockRepository BloodStockRepository { get; }
 
         public IDonationRepository DonationRepository { get; }
 
         public IDonorsRepository DonorsRepository { get; }
+
+        public async Task AddAsync(Donation donation)
+        {
+           await _dbContext.AddAsync(donation);
+        }
 
         public async Task<int> CompleteAsync()
         {
@@ -39,6 +44,11 @@ namespace DoeSangue.Infrastructure.Persistence
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _dbContext.SaveChangesAsync();
         }
 
         protected virtual void Dispose(bool disposing)

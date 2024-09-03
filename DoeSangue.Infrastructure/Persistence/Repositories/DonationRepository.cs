@@ -17,9 +17,23 @@ namespace DoeSangue.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<Donation>> GetAll()
+        public async Task<List<Donation>> AddAsync(Donation donation)
+        {
+            await _dbContext.Donation.AddAsync(donation);
+
+             await _dbContext.SaveChangesAsync();
+
+            return await _dbContext.Donation.ToListAsync();
+        }
+
+        public async Task<List<Donation>> GetAllAsync()
         {
             return await _dbContext.Donation.ToListAsync();
+        }
+
+        public async Task<Donation> GetByIdAsync(int id)
+        {
+            return await _dbContext.Donation.SingleOrDefaultAsync(x => x.Id == id);
         }
     }
 }

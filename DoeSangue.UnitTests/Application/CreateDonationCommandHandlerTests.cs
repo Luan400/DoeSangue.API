@@ -1,39 +1,40 @@
-﻿using Azure.Core;
-using DoeSangue.Applications.Command.CreateDonation;
+﻿using DoeSangue.Applications.Command.CreateDonation;
 using DoeSangue.Core.Entities;
 using DoeSangue.Domain.Repositories;
 using DoeSangue.Infrastructure.Persistence;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace DoeSangue.UnitTests.Application
 {
     public class CreateDonationCommandHandlerTests
     {
         [Fact]
+        public async Task TestIfDonationCreateWork()
+        {
+            // Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var donationRepositoryMock = new Mock<IDonationRepository>();
 
-        public async Task TestIfDonationCreateWork() {
+            // Configura o mock para retornar o mock do repositório de doações
+            unitOfWorkMock.Setup(uow => uow.DonationRepository).Returns(donationRepositoryMock.Object);
 
+            // Cria uma instância do comando com os parâmetros necessários
+            var createDonateCommand = new CreateDonationCommand(donorId: 5, quantidadeML: 10);
 
-            var unitOfWork = new Mock<IUnitOfWork>();
+            // Cria a instância do handler com o mock do IUnitOfWork
+            var createDonationCommandHandler = new CreateDonationCommandHandler(unitOfWorkMock.Object);
 
-            var donationRepository = new Mock<IDonationRepository>();
+            // Act
+            var id = await createDonationCommandHandler.Handle(createDonateCommand, new CancellationToken());
 
-            var createDonateCommand = new CreateDonationCommand { DonorId = 5, QuantidadeML = 10 };
-
-            var createDonationCommandHandler = new CreateDonationCommandHandler(UnitOfWork.Object);
-
-            var id = await createDonationCommandHandler.Handle(createDonateCommand, new CancellationToken());     
-
+            // Assert
             Assert.True(id >= 0);
 
-            donationRepository.Verify(pr => pr.AddAsync(It.IsAny<Donation>() ), Times.Once );
-
+            // Verifica se o método AddAsync foi chamado exatamente uma vez
+            donationRepositoryMock.Verify(pr => pr.AddAsync(It.IsAny<Donation>()), Times.Once);
         }
     }
 }

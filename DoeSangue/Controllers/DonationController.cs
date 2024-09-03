@@ -1,7 +1,7 @@
 ﻿using DoeSangue.Applications.Command.CreateDonation;
 using DoeSangue.Applications.Queries.GetAllDonation;
 using DoeSangue.Applications.Queries.GetBloodStock;
-using DoeSangue.Applications.Queries.GetBloodStockById;
+
 using DoeSangue.Applications.Queries.GetDonationById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

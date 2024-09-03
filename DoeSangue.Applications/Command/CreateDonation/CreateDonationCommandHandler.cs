@@ -13,18 +13,19 @@ namespace DoeSangue.Applications.Command.CreateDonation
 {
     public class CreateDonationCommandHandler : IRequestHandler<CreateDonationCommand, int>
     {
-        private readonly DoeSangueDbContext _dbContext;
-        public CreateDonationCommandHandler(DoeSangueDbContext dbContext)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CreateDonationCommandHandler(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
         public async Task<int> Handle(CreateDonationCommand request, CancellationToken cancellationToken)
         {
             var donation = new Donation(request.DonorId, request.QuantidadeML);
 
-            await _dbContext.AddAsync(donation);
+            await _unitOfWork.AddAsync(donation);
 
-            await _dbContext.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             return donation.Id;
         }

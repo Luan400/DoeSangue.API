@@ -1,7 +1,7 @@
 ﻿using DoeSangue.Applications.Command.CreateBloodStock;
 using DoeSangue.Applications.Command.UpdateBloodStock;
 using DoeSangue.Applications.Queries.GetBloodStock;
-using DoeSangue.Applications.Queries.GetBloodStockById;
+
 using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
@@ -30,17 +30,6 @@ namespace DoeSangue.API.Controllers
             return Ok(id);
         }
 
-        [HttpGet("{id}")]
-
-        public async Task<IActionResult> GetById(int id)
-        {
-
-            var getAll = new GetBloodStockByIdQuery(id);
-
-            var get = await _mediator.Send(id);
-
-            return Ok(get);
-        }
 
         [HttpPost]
 
