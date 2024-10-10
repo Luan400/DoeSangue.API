@@ -12,19 +12,19 @@ namespace DoeSangue.Applications.Command.CreateBloodStock
 {
     public class CreateBloodStockCommandHandler : IRequestHandler<CreateBloodStockCommand, int>
     {
-        private readonly DoeSangueDbContext _dbContext;
-        public CreateBloodStockCommandHandler(DoeSangueDbContext dbContext)
+        private readonly IUnitOfWork _unitOfWork;
+        public CreateBloodStockCommandHandler(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<int> Handle(CreateBloodStockCommand request, CancellationToken cancellationToken)
         {
             var bloodstock = new BloodStock(request.TipoSanguineo, request.FatorRh, request.QuantidadeML);
 
-            await _dbContext.AddAsync(bloodstock);
+            await _unitOfWork.AddAsync(bloodstock);
 
-            await _dbContext.SaveChangesAsync();
+            await _unitOfWork.CompleteAsync();
 
             return bloodstock.Id;
         }

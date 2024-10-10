@@ -19,12 +19,18 @@ namespace DoeSangue.Applications.Queries.GetDonorsById
 
         public async Task<List<DonorsViewModel>> Handle(GetDonorsByIdQuery request, CancellationToken cancellationToken)
         {
-            var donors = await _unitOfWork.DonorsRepository.GetAllAsync();
+            var donors = await _unitOfWork.DonorsRepository.GetByIdAsync(request.Id);
 
-            var donorViewModel = donors.Select(
-                p => new DonorsViewModel(p.NomeCompleto, p.Email, p.DataNascimento, p.Genero, p.Peso, p.TipoSanguineo, p.FatorRh)).ToList();
+            var donorsViewModel = new DonorsViewModel(
+                donors.NomeCompleto,
+                donors.Email,
+                donors.DataNascimento,
+                donors.Genero,
+                donors.Peso,
+                donors.TipoSanguineo,
+                donors.FatorRh);
 
-            return donorViewModel;
+            return new List<DonorsViewModel> { donorsViewModel };
         }
     }
 }

@@ -10,21 +10,24 @@ namespace DoeSangue.Applications.Command.UpdateBloodStock
 {
     public class UpdateBloodStockCommandHandler : IRequestHandler<UpdateBloodStockCommand, int>
     {
-        private readonly DoeSangueDbContext _dbContext;
-        public UpdateBloodStockCommandHandler(DoeSangueDbContext dbContext)
+        private readonly IUnitOfWork _unitOfWork;
+        public UpdateBloodStockCommandHandler(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<int> Handle(UpdateBloodStockCommand request, CancellationToken cancellationToken)
         {
-            var bloodStock = _dbContext.BloodStock.SingleOrDefault(p => p.Id == request.Id);
+            var bloodStock = await _unitOfWork.BloodStockRepository.GetByIdAsync(request.Id);
 
-            bloodStock.Update(request.TipoSanguineo, request.FatorRh, request.QuantidadeML, request.Id);
+            if (bloodStock == null)
+            {
+                bloodStock.Update(request.TipoSanguineo, request.FatorRh, request.QuantidadeML, request.Id);
 
-            await _dbContext.SaveChangesAsync();
+                await _unitOfWork.UpdateAsync(bloodStock);
 
-            return bloodStock.Id;
+            }
+            return bloodStock?.Id ?? 0;
         }
     }
 }

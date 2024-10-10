@@ -11,18 +11,18 @@ namespace DoeSangue.Applications.Command.CreateDonor
 {
     public class CreateDonorCommandHandler : IRequestHandler<CreateDonorCommand, int>
     {
-        private readonly DoeSangueDbContext _dbContext;
-        public CreateDonorCommandHandler(DoeSangueDbContext dbContext)
+        private readonly IUnitOfWork _unitOfWork;
+        public CreateDonorCommandHandler(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
         public async Task<int> Handle(CreateDonorCommand request, CancellationToken cancellationToken)
         {
             var donor = new Donor(request.NomeCompleto, request.Email, request.DataNascimento, request.Genero, request.Peso, request.TipoSanguineo, request.FatorRh); ;
 
-            await _dbContext.AddAsync(donor);
+            await _unitOfWork.AddAsync(donor);
 
-            await _dbContext.SaveChangesAsync();
+            await _unitOfWork.CompleteAsync();
 
             return donor.Id;
         }

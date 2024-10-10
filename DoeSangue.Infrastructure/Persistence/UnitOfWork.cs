@@ -30,14 +30,22 @@ namespace DoeSangue.Infrastructure.Persistence
 
         public IDonorsRepository DonorsRepository { get; }
 
-        public async Task AddAsync(Donation donation)
+  
+        public async Task AddAsync<TEntity>(TEntity entity) where TEntity : class
         {
-           await _dbContext.AddAsync(donation);
+            await _dbContext.Set<TEntity>().AddAsync(entity);
         }
 
         public async Task<int> CompleteAsync()
         {
          return await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync<TEntity>(TEntity entity) where TEntity : class
+        {
+            _dbContext.Set<TEntity>().Remove(entity);
+
+            await CompleteAsync();
         }
 
         public void Dispose()
@@ -49,6 +57,13 @@ namespace DoeSangue.Infrastructure.Persistence
         public async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync<TEntity>(TEntity entity) where TEntity : class
+        {
+            _dbContext.Set<TEntity>().Update(entity);
+
+            await CompleteAsync();
         }
 
         protected virtual void Dispose(bool disposing)

@@ -11,7 +11,7 @@ namespace DoeSangue.Domain.Repositories
     {
         Task<List<BloodStock>> GetAllAsync();
 
-       
+       Task<BloodStock> GetByIdAsync(int id);
 
         Task<List<BloodStock>> AddAsync(BloodStock bloodStock);
     }

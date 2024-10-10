@@ -12,20 +12,21 @@ namespace DoeSangue.Applications.Command.DeleteDonor
     public class DeleteDonorCommandHandler : IRequestHandler<DeleteDonorCommand, int>
     {
 
-        private readonly DoeSangueDbContext _dbContext;
-        public DeleteDonorCommandHandler(DoeSangueDbContext dbContext)
+        private readonly IUnitOfWork _unitOfWork;
+        public DeleteDonorCommandHandler(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<int> Handle(DeleteDonorCommand request, CancellationToken cancellationToken)
         {
-            var donor = _dbContext.Donor.SingleOrDefault(p => p.Id == request.DonorId);
+            var donor = await _unitOfWork.DonorsRepository.GetByIdAsync(request.DonorId);
 
             if (donor != null)
             {
                 donor.Delete(false);
-                await _dbContext.SaveChangesAsync();
+                await _unitOfWork.CompleteAsync();
+
             }
 
             return donor?.Id ?? 0;

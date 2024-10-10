@@ -32,6 +32,9 @@ namespace DoeSangue.Infrastructure.Persistence.Repositories
             return await _dbContext.BloodStock.ToListAsync();
         }
 
-        
+        public async Task<BloodStock> GetByIdAsync(int id)
+        {
+           return await _dbContext.BloodStock.SingleOrDefaultAsync(p => p.Id == id);
+        }
     }
 }

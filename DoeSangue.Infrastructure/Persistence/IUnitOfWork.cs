@@ -15,8 +15,10 @@ namespace DoeSangue.Infrastructure.Persistence
 
         IDonorsRepository DonorsRepository { get; }
 
-        Task AddAsync(Donation donation);
+        Task AddAsync<TEntity>(TEntity entity) where TEntity : class;
         Task<int> CompleteAsync();
-        Task SaveChangesAsync();
+        Task DeleteAsync<TEntity>(TEntity entity) where TEntity : class;
+        Task UpdateAsync<TEntity>(TEntity entity) where TEntity : class;
+        
     }
 }

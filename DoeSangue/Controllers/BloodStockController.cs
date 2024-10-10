@@ -40,6 +40,7 @@ namespace DoeSangue.API.Controllers
             return Ok(id);
         }
 
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put (int id, [FromBody] UpdateBloodStockCommand command)
         {

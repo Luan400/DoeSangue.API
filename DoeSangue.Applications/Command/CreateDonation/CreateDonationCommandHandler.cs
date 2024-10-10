@@ -25,7 +25,7 @@ namespace DoeSangue.Applications.Command.CreateDonation
 
             await _unitOfWork.AddAsync(donation);
 
-            await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.CompleteAsync();
 
             return donation.Id;
         }
