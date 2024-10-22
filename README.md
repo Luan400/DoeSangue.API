@@ -5,30 +5,30 @@
   <a href='https://www.instagram.com/luanbortoleto/'><img alt='Luan Bortoleto [Instagram]' src='/iconinsta(2).jpg' width=20px></a>
   </p>
   
-  <p align="center"> API REST completa de um sistema para doações de sangue, com controle de estoque de sangue
+  <p align="center"> Complete REST API for a blood donation system, with blood stock control
  </p>
  
  <p align='center'>
- <a href= '#demonstração'> Demonstração </a> &nbsp;&nbsp;|&nbsp;&nbsp;
- <a href= '#autor'> Autor </a> &nbsp;&nbsp;|&nbsp;&nbsp;
- <a href= '#tecnologias'> Tecnologias e Funcionalidades </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+ <a href= '#demonstração'> Demonstration </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+ <a href= '#autor'> Author </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+ <a href= '#tecnologias'> Technologies and Features </a> &nbsp;&nbsp;|&nbsp;&nbsp;
  </p>
  
 
 
- ### Demonstração
+ ### Demonstration
  
 <p align='center'> <img src= '/doesangue.PNG'</p></p>
  
-### Tecnologias
+### Technologies
 
-<h1>Tecnologias e práticas utilizadas</h1>
+<h1>Technologies and practices used</h1>
 
 <div>
 <ul>
  <li>C#</li>
 <li>ASPT.NET Core com .NET</li>
-<li>Arquitetura limpa</li>
+<li>Clean </li>
 <li>Entity Framework Core</li>
  <li>CQRS</li>
  <li>Padrão Repository</li>
@@ -40,12 +40,12 @@
 <div>
  <h1> Funcionalidades</h1>
  <ul>
-  <li>Cadastro, Listagem, Detalhes, Atualização e Remoção doação do estoque</li>
-   <li>Início e Cancelamento de doação</li>
-   <li>Cadastro de doadores e doações</li>
+  <li>Registration, Listing, Details, Update and Removal of donation from stock</li>
+   <li>Donation Start and Cancellation</li>
+   <li>Donor registration and donations</li>
  </ul>
 </div>
  
  # Autor 
- <p> Produzido e elaborado por <a href='https://www.instagram.com/luanbortoleto/'>Luan Bortoleto</a>, programador Full Stack.</p>
+ <p> Produced and prepared by <a href='https://www.instagram.com/luanbortoleto/'>Luan Bortoleto</a>, Dev Full Stack.</p>
 
