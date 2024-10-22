@@ -46,6 +46,6 @@
  </ul>
 </div>
  
- # Autor 
+ # Author 
  <p> Produced and prepared by <a href='https://www.instagram.com/luanbortoleto/'>Luan Bortoleto</a>, Dev Full Stack.</p>
 
