@@ -27,13 +27,13 @@
 <div>
 <ul>
  <li>C#</li>
-<li>ASPT.NET Core com .NET</li>
+<li>ASPT.NET Core .NET</li>
 <li>Clean </li>
 <li>Entity Framework Core</li>
  <li>CQRS</li>
  <li>Padrão Repository</li>
  <li>UnitOfWork</li>
- <li>Teste Unitários XUnit</li>
+ <li>Unit Tests XUnit</li>
 </ul>
 </div>
 
